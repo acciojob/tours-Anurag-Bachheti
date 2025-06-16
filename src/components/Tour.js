@@ -1,23 +1,26 @@
-import React,{useState} from 'react'
-import Tours from '../Data/Tours';
+import React, { useState } from 'react';
 
-function Tour() {
-  const[showMore, setShowMore] = useState(false);
-
-  const toggleText = () => {
-    setShowMore(!showMore)
-  }
+const Tour = ({ id, name, info, image, price, onRemove }) => {
+  // ✅ This hook MUST be at the top level — and it is here
+  const [showMore, setShowMore] = useState(false);
 
   return (
-    <div style={{width:'500px', margin:'auto'}}>
-      <p>
-        {showMore ? tourList.info : `${tourList.slice(0, 200)}...`}
-      </p>
-      <button onClick={toggleText}>
-        {showMore ? 'See Less' : 'Show More'}
-      </button>
-    </div>
-  )
-}
+    <div style={{ width: '500px', margin: 'auto' }}>
+      <img src={image} alt={name} />
 
-export default Tour
+      <div>
+        <h3>{name}</h3>
+        <h4>{price}</h4>
+        <p>
+          {showMore ? info : `${info.slice(0, 200)}...`}
+          <button onClick={() => setShowMore(!showMore)} style={{ marginLeft: '10px' }}>
+            {showMore ? 'See Less' : 'Show More'}
+          </button>
+        </p>
+        <button onClick={() => onRemove(id)}>Remove</button>
+      </div>
+    </div>
+  );
+};
+
+export default Tour;

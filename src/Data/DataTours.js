@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-const Tours = () => {
+// const DataTours = () => {
 
-  const tourList = [
+  const TourList = [
     {
       "id": "rec6d6T3q5EBIdCfD",
       "name": "Best of Paris in 7 Days Tour",
@@ -39,26 +39,6 @@ const Tours = () => {
       "price": "2,595"
     },
   ];
+// };
 
-  return (
-    <div>
-      <h2>
-        User List
-      </h2>
-      <ul>
-        {tourList.map((user) => (
-          <li key={user.id}>
-            <div>
-              <img src={user.image} />
-              <p>Name = {user.name}</p>
-              <p>Price = {user.price}</p>
-              <p>Description = {user.info}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-export default Tours
+export default TourList;
